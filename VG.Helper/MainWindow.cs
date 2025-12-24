@@ -70,21 +70,72 @@ namespace VG.Helper
                 if (spaceship.guid.ToString().Replace("{", "").Replace("}", "") == document.RootElement.GetProperty("Player").GetProperty("currentSpaceShip").ToString())
                 {
                     label21.Text = spaceship.shipClass;
-                    if (spaceship.currentShieldHP != null)
+
+                    // Shield
+                    try
                     {
-                        shieldProgressBar.Value = (int)(Convert.ToDouble(spaceship.currentShieldHP) / Convert.ToDouble(spaceship.maxShieldHP) * 100);
-                        shieldProgressBar.CustomText = Convert.ToDouble(spaceship.currentShieldHP).ToString("N0") + " / " + (Convert.ToDouble(spaceship.maxShieldHP)).ToString("N0");
+                        if (spaceship.currentShieldHP != null)
+                        {
+                            shieldProgressBar.Value = (int)(Convert.ToDouble(spaceship.currentShieldHP) /
+                                                            Convert.ToDouble(spaceship.maxShieldHP) * 100);
+
+                            shieldProgressBar.CustomText =
+                                Convert.ToDouble(spaceship.currentShieldHP).ToString("N0") + " / " +
+                                Convert.ToDouble(spaceship.maxShieldHP).ToString("N0");
+
+                            shieldProgressBar.Visible = true;
+                        }
                     }
-                    if (spaceship.currentArmorHP != null)
+                    catch
                     {
-                        armorProgressBar.Value = (int)(Convert.ToDouble(spaceship.currentArmorHP) / Convert.ToDouble(spaceship.maxArmorHP) * 100);
-                        armorProgressBar.CustomText = Convert.ToDouble(spaceship.currentArmorHP).ToString("N0") + " / " + (Convert.ToDouble(spaceship.maxArmorHP)).ToString("N0");
+                        shieldProgressBar.Visible = false;
                     }
-                    if(spaceship.currentHullHP != null)
+
+
+                    // Armor
+                    try
                     {
-                        hullProgressBar.Value = (int)(Convert.ToDouble(spaceship.currentHullHP) / Convert.ToDouble(spaceship.maxHullHP) * 100);
-                        hullProgressBar.CustomText = Convert.ToDouble(spaceship.currentHullHP).ToString("N0") + " / " + (Convert.ToDouble(spaceship.maxHullHP)).ToString("N0");
+                        if (spaceship.currentArmorHP != null)
+                        {
+                            armorProgressBar.Value = (int)(Convert.ToDouble(spaceship.currentArmorHP) /
+                                                           Convert.ToDouble(spaceship.maxArmorHP) * 100);
+
+                            armorProgressBar.CustomText =
+                                Convert.ToDouble(spaceship.currentArmorHP).ToString("N0") + " / " +
+                                Convert.ToDouble(spaceship.maxArmorHP).ToString("N0");
+
+                            armorProgressBar.Visible = true;
+                        }
                     }
+                    catch
+                    {
+                        armorProgressBar.Visible = false;
+                    }
+
+
+                    // Hull
+                    try
+                    {
+                        if (spaceship.currentHullHP != null)
+                        {
+                            hullProgressBar.Value = (int)(Convert.ToDouble(spaceship.currentHullHP) /
+                                                          Convert.ToDouble(spaceship.maxHullHP) * 100);
+
+                            hullProgressBar.CustomText =
+                                Convert.ToDouble(spaceship.currentHullHP).ToString("N0") + " / " +
+                                Convert.ToDouble(spaceship.maxHullHP).ToString("N0");
+
+                            hullProgressBar.Visible = true;
+                        }
+                    }
+                    catch
+                    {
+                        hullProgressBar.Visible = false;
+                    }
+
+                    cargoCapacityLabel.Text = "Cargo Capacity: " + Convert.ToDouble(spaceship.cargoCapacity).ToString("N0", CultureInfo.InvariantCulture);
+
+
 
 
 

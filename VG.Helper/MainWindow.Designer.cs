@@ -103,8 +103,12 @@
             shieldProgressBar = new VG.Helper.Controls.ProgressBarWithText();
             armorProgressBar = new VG.Helper.Controls.ProgressBarWithText();
             hullProgressBar = new VG.Helper.Controls.ProgressBarWithText();
+            shieldLabel = new Label();
+            armorLabel = new Label();
+            hullLabel = new Label();
             statusStrip1 = new StatusStrip();
             toolStripStatusLabel1 = new ToolStripStatusLabel();
+            cargoCapacityLabel = new Label();
             tableLayoutPanel1.SuspendLayout();
             menuStrip1.SuspendLayout();
             mainTabControl.SuspendLayout();
@@ -922,9 +926,13 @@
             tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
             tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
             tableLayoutPanel5.Controls.Add(label21, 0, 0);
-            tableLayoutPanel5.Controls.Add(shieldProgressBar, 0, 1);
-            tableLayoutPanel5.Controls.Add(armorProgressBar, 0, 2);
-            tableLayoutPanel5.Controls.Add(hullProgressBar, 0, 3);
+            tableLayoutPanel5.Controls.Add(shieldProgressBar, 0, 2);
+            tableLayoutPanel5.Controls.Add(armorProgressBar, 0, 4);
+            tableLayoutPanel5.Controls.Add(hullProgressBar, 0, 6);
+            tableLayoutPanel5.Controls.Add(shieldLabel, 0, 1);
+            tableLayoutPanel5.Controls.Add(armorLabel, 0, 3);
+            tableLayoutPanel5.Controls.Add(hullLabel, 0, 5);
+            tableLayoutPanel5.Controls.Add(cargoCapacityLabel, 1, 0);
             tableLayoutPanel5.Dock = DockStyle.Fill;
             tableLayoutPanel5.Location = new Point(3, 3);
             tableLayoutPanel5.Name = "tableLayoutPanel5";
@@ -956,7 +964,7 @@
             // 
             shieldProgressBar.CustomText = "";
             shieldProgressBar.Dock = DockStyle.Fill;
-            shieldProgressBar.Location = new Point(3, 21);
+            shieldProgressBar.Location = new Point(3, 39);
             shieldProgressBar.Name = "shieldProgressBar";
             shieldProgressBar.ProgressColor = Color.DodgerBlue;
             shieldProgressBar.Size = new Size(167, 12);
@@ -968,9 +976,9 @@
             // 
             armorProgressBar.CustomText = "";
             armorProgressBar.Dock = DockStyle.Fill;
-            armorProgressBar.Location = new Point(3, 39);
+            armorProgressBar.Location = new Point(3, 75);
             armorProgressBar.Name = "armorProgressBar";
-            armorProgressBar.ProgressColor = Color.Green;
+            armorProgressBar.ProgressColor = Color.Gold;
             armorProgressBar.Size = new Size(167, 12);
             armorProgressBar.TabIndex = 2;
             armorProgressBar.TextColor = Color.Black;
@@ -980,13 +988,46 @@
             // 
             hullProgressBar.CustomText = "";
             hullProgressBar.Dock = DockStyle.Fill;
-            hullProgressBar.Location = new Point(3, 57);
+            hullProgressBar.Location = new Point(3, 111);
             hullProgressBar.Name = "hullProgressBar";
-            hullProgressBar.ProgressColor = Color.Green;
+            hullProgressBar.ProgressColor = Color.OrangeRed;
             hullProgressBar.Size = new Size(167, 12);
             hullProgressBar.TabIndex = 3;
             hullProgressBar.TextColor = Color.Black;
             hullProgressBar.TextFont = new Font("Microsoft Sans Serif", 10F, FontStyle.Bold);
+            // 
+            // shieldLabel
+            // 
+            shieldLabel.AutoSize = true;
+            shieldLabel.Dock = DockStyle.Fill;
+            shieldLabel.Location = new Point(3, 18);
+            shieldLabel.Name = "shieldLabel";
+            shieldLabel.Size = new Size(167, 18);
+            shieldLabel.TabIndex = 4;
+            shieldLabel.Text = "Shield:";
+            shieldLabel.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // armorLabel
+            // 
+            armorLabel.AutoSize = true;
+            armorLabel.Dock = DockStyle.Fill;
+            armorLabel.Location = new Point(3, 54);
+            armorLabel.Name = "armorLabel";
+            armorLabel.Size = new Size(167, 18);
+            armorLabel.TabIndex = 5;
+            armorLabel.Text = "Armor:";
+            armorLabel.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // hullLabel
+            // 
+            hullLabel.AutoSize = true;
+            hullLabel.Dock = DockStyle.Fill;
+            hullLabel.Location = new Point(3, 90);
+            hullLabel.Name = "hullLabel";
+            hullLabel.Size = new Size(167, 18);
+            hullLabel.TabIndex = 6;
+            hullLabel.Text = "Hull:";
+            hullLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // statusStrip1
             // 
@@ -1002,6 +1043,17 @@
             toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             toolStripStatusLabel1.Size = new Size(118, 15);
             toolStripStatusLabel1.Text = "toolStripStatusLabel1";
+            // 
+            // cargoCapacityLabel
+            // 
+            cargoCapacityLabel.AutoSize = true;
+            cargoCapacityLabel.Dock = DockStyle.Fill;
+            cargoCapacityLabel.Location = new Point(176, 0);
+            cargoCapacityLabel.Name = "cargoCapacityLabel";
+            cargoCapacityLabel.Size = new Size(167, 18);
+            cargoCapacityLabel.TabIndex = 7;
+            cargoCapacityLabel.Text = "Cargo Capacity:";
+            cargoCapacityLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // MainWindow
             // 
@@ -1123,5 +1175,9 @@
         private Controls.ProgressBarWithText shieldProgressBar;
         private Controls.ProgressBarWithText armorProgressBar;
         private Controls.ProgressBarWithText hullProgressBar;
+        private Label shieldLabel;
+        private Label armorLabel;
+        private Label hullLabel;
+        private Label cargoCapacityLabel;
     }
 }
